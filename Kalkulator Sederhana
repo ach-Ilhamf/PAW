@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="output2.php" method="post">
+        <table border="0">
+            <tr>
+                <td colspan="2" align="center">
+                    Kalkulator 
+                </td>
+            </tr>
+            <tr>
+                <td>Nama : </td><td><input type="text" name="nama"></td>
+            </tr>
+            <tr>
+                <td>Angka ke-1 :</td><td><input type="number" name="angka1"></td>
+            </tr>
+            <tr>
+                <td>Operasi :</td>
+                <td>
+                    <select name="operasi">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="/">/</option>
+                        <option value="*">*</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Angka ke-2 :</td><td><input type="number" name="angka2"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="hitung" value="Hitung"></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <script language="javascript">
+        confirm("Klik OK, untuk melihat hasil")
+    </script>
+</body>
+</html>
+<?php    
+    $nama = $_POST['nama'];
+    $angka1 = $_POST['angka1'];
+    $operasi = $_POST['operasi'];
+    $angka2 = $_POST['angka2'];
+
+    function tambah($angka1,$angka2, $nama){
+        $hasil = $angka1 + $angka2;
+        echo "Nama Pengguna : $nama<br>";        
+        echo "$angka1 + $angka2 = $hasil<br>";
+        if ($angka1 > $angka2){
+            echo "$angka1 > $angka2";
+        } elseif ($angka1 < $angka2){
+            echo "$angka1 < $angka2";
+        }
+    }
+    function kurang($angka1,$angka2, $nama){
+        $hasil = $angka1 - $angka2;
+        echo "Nama Pengguna : $nama<br>";        
+        echo "$angka1 - $angka2 = $hasil<br>";
+        if ($angka1 > $angka2){
+            echo "$angka1 > $angka2";
+        } elseif ($angka1 < $angka2){
+            echo "$angka1 < $angka2";
+        }
+    }
+    function kali($angka1,$angka2, $nama){
+        $hasil = $angka1 * $angka2;
+        echo "Nama Pengguna : $nama<br>";        
+        echo "$angka1 * $angka2 = $hasil<br>";
+        if ($angka1 > $angka2){
+            echo "$angka1 > $angka2";
+        } elseif ($angka1 < $angka2){
+            echo "$angka1 < $angka2";
+        }
+    }
+    function bagi($angka1,$angka2, $nama){
+        $hasil = $angka1 / $angka2;
+        echo "Nama Pengguna : $nama<br>";        
+        echo "$angka1 / $angka2 = $hasil<br>";
+        if ($angka1 > $angka2){
+            echo "$angka1 > $angka2";
+        } elseif ($angka1 < $angka2){
+            echo "$angka1 < $angka2";
+        }
+    }
+
+    if ($operasi=="+"){
+        tambah($angka1,$angka2,$nama);
+    } elseif ($operasi=="-"){
+        kurang($angka1,$angka2,$nama);
+    } elseif ($operasi=="*"){
+        kali($angka1,$angka2,$nama);
+    } elseif ($operasi=="/"){
+        bagi($angka1,$angka2,$nama);
+    }
+?>
